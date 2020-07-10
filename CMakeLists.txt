@@ -41,6 +41,7 @@ target_sources(${CMAKE_PROJECT_NAME} PUBLIC ${MODULES_SOURCE_DIR}/main.c)
 
 # Add submodules to the project. Each submodule should have it's own CMakeLists.txt 
 add_subdirectory(${DRIVERS_SOURCE_DIR}/gpio)
+set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES COMPILE_FLAGS "-O0 -g3 -DDEBUG")
 
 # Set C/C++ compiler settings
 set(CMAKE_ASM_COMPILER  "${COMPILER_PREFIX}gcc -x assembler-with-cpp")
