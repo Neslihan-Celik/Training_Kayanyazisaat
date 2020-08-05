@@ -32,10 +32,11 @@ endif()
 set(MODULES_SOURCE_DIR ${${CMAKE_PROJECT_NAME}_SOURCE_DIR}/source)
 set(DRIVERS_SOURCE_DIR ${${CMAKE_PROJECT_NAME}_SOURCE_DIR}/drivers)
 
-include("${CMAKE_SOURCE_DIR}/environment/${ARCH}/system.cmake")
-
 # Create Main Project executable
 add_executable(${CMAKE_PROJECT_NAME})
+
+include("${CMAKE_SOURCE_DIR}/environment/${ARCH}/system.cmake")
+
 # Add main.c for Main proejct. 
 target_sources(${CMAKE_PROJECT_NAME} PUBLIC ${MODULES_SOURCE_DIR}/main.c)
 
@@ -52,5 +53,5 @@ set(CMAKE_OBJDUMP       ${COMPILER_PREFIX}objdump)
 message(STATUS "Compiler prefix =" ${COMPILER_PREFIX})
 
 # Include Splint static analysis tool
-include(${CMAKE_SOURCE_DIR}/environment/cmakeTools/splint.cmake)
+#include(${CMAKE_SOURCE_DIR}/environment/cmakeTools/splint.cmake)
 
